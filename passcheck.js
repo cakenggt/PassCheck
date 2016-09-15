@@ -1005,11 +1005,20 @@
 
   var PassCheck = {};
 
-  var lower = 'abcdefghijklmnopqrstuvwxyz';
-  var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var num = '1234567890';
+  var lower = {
+    start: 'a'.charCodeAt(0),
+    end: 'z'.charCodeAt(0)
+  };
+  var upper = {
+    start: 'A'.charCodeAt(0),
+    end: 'Z'.charCodeAt(0)
+  };
+  var num = {
+    start: '0'.charCodeAt(0),
+    end: '9'.charCodeAt(0)
+  };
 
-  PassCheck.check = function(password){
+  exports.check = function(password){
     var result = {
       lower: 0,
       upper: 0,
@@ -1019,18 +1028,18 @@
       common: false
     };
     if (typeof password != 'string'){
-      throw "Not string, instead a " + typeof password;
+      throw new Error("Not string, instead a " + typeof password);
     }
     result.length = password.length;
     for (var i = 0; i < password.length; i++){
-      var char = password[i];
-      if (lower.indexOf(char) > -1){
+      var charCode = password.charCodeAt(i);
+      if (charCode >= lower.start && charCode <= lower.end){
         result.lower++;
       }
-      else if (upper.indexOf(char) > -1){
+      else if (charCode >= upper.start && charCode <= upper.end){
         result.upper++;
       }
-      else if (num.indexOf(char) > -1){
+      else if (charCode >= num.start && charCode <= num.end){
         result.num++;
       }
       else{
@@ -1039,7 +1048,5 @@
     }
     result.common = passwordMap[password] || false;
     return result;
-  }
-
-  exports.PassCheck = PassCheck;
-})(typeof exports !== 'undefined' ? exports : this);
+  };
+})(typeof exports !== 'undefined' ? exports : this.PassCheck = {});

@@ -1,0 +1,27 @@
+{
+  "name": "passcheck",
+  "version": "1.0.0",
+  "description": "Simple password checker and analyzer",
+  "main": "passcheck.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cakenggt/PassCheck.git"
+  },
+  "keywords": [
+    "Password"
+  ],
+  "author": "Alec Lownes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cakenggt/PassCheck/issues"
+  },
+  "homepage": "https://github.com/cakenggt/PassCheck#readme",
+  "private": true,
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}

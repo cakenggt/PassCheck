@@ -11,10 +11,6 @@ that analysis which include:
 * Length
 * Commonality (whether the password appears in the top 1000 password list)
 
-## Tests
-The `test.html` and `tests.js` files are not necessary for the operation of
-PassCheck and are only included as unit tests. These run with QUnit.
-
 ## Documentation
 ### PassCheck.check
 `PassCheck.check(String)` will check a string password. This will throw an error
